@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:59921",
+      "applicationUrl": "ftp://185.148.81.241/hostru07.fornex.host/",
       "sslPort": 0
     }
   },
@@ -21,7 +21,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "wwwroot//html//index.html",
-      "applicationUrl": "http://localhost:5000",
+      "applicationUrl": "ftp://185.148.81.241/hostru07.fornex.host/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OnlineShop.API.Configurations;
+using OnlineShop.CORE.Hub;
 
 namespace OnlineShop
 {
@@ -33,6 +34,8 @@ namespace OnlineShop
                 .ConfigureAuthentication(Configuration)
                 .AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,11 +52,15 @@ namespace OnlineShop
 
             app.UseAuthentication();
             app.UseAuthorization();
-            
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chat");
             });
         }
     }
