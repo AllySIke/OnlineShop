@@ -65,19 +65,19 @@ namespace OnlineShop.API.Controllers
             }
         }
 
-        //[Authorize(Roles = "user")]
-        [HttpPost("{title}/{description}/{cost}/{category}")]
-        public async Task<IActionResult> Post(string title, string description, decimal cost, Guid category, IFormFile pic)
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] OnlineShop.DOMAIN.Entities.Product product)//, IFormFile pic)
         
         {
             try
             {
-                string path = _appEnvironment.WebRootPath + "\\images\\" + Guid.NewGuid().ToString().Substring(0, 4) + pic.FileName;
-                using (var fileStream = new FileStream(path, FileMode.Create))
-                {
-                    await pic.CopyToAsync(fileStream);
-                }
-                return Ok(await _repo.Create(title, description, cost, category, path));
+                string path = _appEnvironment.WebRootPath + "\\images\\" + Guid.NewGuid().ToString().Substring(0, 4);// + pic.FileName;
+                //using (var fileStream = new FileStream(path, FileMode.Create))
+                //{
+                //    await pic.CopyToAsync(fileStream);
+                //}
+                return Ok(await _repo.Create(product.Name, product.Description, product.Cost, product.CategoryId, path));
             }
             catch (Exception ex)
             {

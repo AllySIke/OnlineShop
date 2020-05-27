@@ -7,8 +7,8 @@ function loginUser(){
             data: `{ "Email": "${document.forms.loginForm.email.value}", "Password": "${document.forms.loginForm.password.value}"}`,
             success: function (data, textStatus) {
                 sessionStorage.clear();
-                sessionStorage.setItem("AccessToken", data.accessToken);
-                sessionStorage.setItem("RefreshToken", data.refreshToken);
+                sessionStorage.setItem("AccessToken", data.data.accessToken);
+                sessionStorage.setItem("RefreshToken", data.data.refreshToken);
                 getProducts();
                 editButtons();
             }
@@ -24,10 +24,11 @@ function registerUser(){
              "Name": "${document.forms.signUpForm.name.value}" }`,
             success: function (data, textStatus) {
                 sessionStorage.clear();
-                sessionStorage.setItem("AccessToken", data.accessToken);
-                sessionStorage.setItem("RefreshToken", data.refreshToken);
-                console.log(sessionStorage.getItem("AccessToken"));
+                sessionStorage.setItem("AccessToken", data.data.accessToken);
+                sessionStorage.setItem("RefreshToken", data.data.refreshToken);
+                console.log(data.accessToken);
                 getProducts();
+                editButtons();
             }
         });
 }

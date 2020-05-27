@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "ftp://185.148.81.241/hostru07.fornex.host/",
+      "applicationUrl": "http://localhost:5000",
       "sslPort": 0
     }
   },
@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "wwwroot//html//index.html",
+      "launchUrl": "wwwroot/html/index.html",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,8 +20,8 @@
     "token": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "wwwroot//html//index.html",
-      "applicationUrl": "ftp://185.148.81.241/hostru07.fornex.host/",
+      "launchUrl": "wwwroot/html/index.html",
+      "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

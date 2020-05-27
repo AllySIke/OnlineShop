@@ -56,14 +56,14 @@ function storeLayout(){
 
 function headerEditButtons(){
     return `<ul class="nav navbar-nav">
-    <li onclick=""><a><i class="fa fa-shopping-cart"></i> Cart</a></li>
+    <li onclick="getChat()"><a><i class="fa fa-pencil"></i> Support</a></li>
     <li onclick="logOut()"><a><i class="fa fa-lock"></i> Logout</a></li>
 </ul>`;
 }
 
 function headerButtons(){
     return `<ul class="nav navbar-nav">
-    <li onclick=""><a><i class="fa fa-shopping-cart"></i> Cart</a></li>
+    <li onclick="getChat()"><a><i class="fa fa-pencil"></i> Support</a></li>
     <li onclick="getLogin()"><a><i class="fa fa-lock"></i> Login</a></li>
 </ul>`;
 }
@@ -103,8 +103,8 @@ function createProductForm(list){
         <input required= type="number" class="form-control" name="cost" />
         <label>Категория</label>
         <select class="form-control" id="categoryselect">` + list + `</select>
-        <label>Фото</label>
-        <input required="required" type="file" accept=".jpg, .jpeg, .png" class="form-control" name="pic" />
+        <!--label>Фото</label-->
+        <!--input required="required" type="file" accept=".jpg, .jpeg, .png" class="form-control" name="pic" /-->
     </div>
 </form>
 <button type="button" class="btn btn-outline-success btn-block" id="createProduct">Добавить</button>
@@ -145,7 +145,7 @@ function product(src, price, name){
     <div class="product-image-wrapper">
         <div class="single-products">
             <div class="productinfo text-center">
-                <img src="${src}" alt="" />
+                <!--img src="${src}" alt="" /-->
                 <h2>${price} ₽</h2>
                 <p>${name}</p>
                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -154,7 +154,8 @@ function product(src, price, name){
                 <div class="overlay-content">
                     <h2>${price} ₽</h2>
                     <p>${name}</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Edit</a>
+                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Delete</a>
                 </div>
             </div>
         </div>

@@ -6,10 +6,14 @@ function createCategory(){
             dataType : "json",
             contentType: "application/json; charset=utf-8",
             data: `{ "title": "${document.forms.createCategoryForm.title.value}" }`,
+            beforeSend: function(request) { 
+               request.setRequestHeader("Authorization", `Bearer ${sessionStorage.getItem("AccessToken")}`);
+               request.setRequestHeader("grant-type", "refresh_token");
+               request.setRequestHeader("refresh_token", `${sessionStorage.getItem("RefreshToken")}`)
+            }, 
             success: function (data, textStatus)
             { 
-                getAllCategories();
-                getAllProductss();
+                getProducts()
             }      
         });
 }
@@ -23,10 +27,14 @@ function editCategory(){
             contentType: "application/json; charset=utf-8",
             data: `{ "Title": "${document.forms.editCategoryForm.title.value}",
         "Id": "${document.forms.editCategoryForm.title.id}" }`,
+        beforeSend: function(request) {
+           request.setRequestHeader("Authorization", `Bearer ${sessionStorage.getItem("AccessToken")}`);
+           request.setRequestHeader("grant-type", "refresh_token");
+           request.setRequestHeader("refresh_token", `${sessionStorage.getItem("RefreshToken")}`)
+        }, 
             success: function (data, textStatus)
             { 
-                getAllCategories();
-                getAllProductss();
+                getProducts()
             }      
         });
 }
@@ -38,10 +46,14 @@ function deleteCategory(id){
             dataType : "json",
             contentType: "application/json; charset=utf-8",
             url: `http://localhost:5000/api/category/${id}`,
+            beforeSend: function(request) { // в хедерах передаем токен
+               request.setRequestHeader("Authorization", `Bearer ${sessionStorage.getItem("AccessToken")}`);
+               request.setRequestHeader("grant-type", "refresh_token");
+               request.setRequestHeader("refresh_token", `${sessionStorage.getItem("RefreshToken")}`)
+            }, 
             success: function (data, textStatus)
             { 
-                getAllCategories();
-                getAllProductss();
+                getProducts()
             }      
         });
 }

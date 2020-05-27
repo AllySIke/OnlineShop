@@ -13,10 +13,10 @@ namespace OnlineShop.API.Configurations
     {
         public static IServiceCollection AddConnectionProvider(this IServiceCollection services, IConfiguration conf)
         {
-            services.AddDbContext<TContext>(opt =>
-                opt.UseSqlServer(conf.GetConnectionString("Auth"), b => b.MigrationsAssembly("OnlineShop.API"))
-               // .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
-               );
+            services.AddDbContext<TContext>(options =>
+                    options.UseSqlite(conf.GetConnectionString("DataBase"),
+                    b => b.MigrationsAssembly("OnlineShop.API"))
+                    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
             return services;
         }
