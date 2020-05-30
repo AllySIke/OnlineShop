@@ -2,7 +2,7 @@ function createCategory(){
     $.ajax(
         {
             type: 'POST',
-            url: 'http://localhost:5000/api/category',
+            url: 'https://84.201.131.165/api/category',
             dataType : "json",
             contentType: "application/json; charset=utf-8",
             data: `{ "title": "${document.forms.createCategoryForm.title.value}" }`,
@@ -22,7 +22,7 @@ function editCategory(){
     $.ajax(
         {
             type: 'PUT',
-            url: 'http://localhost:5000/api/category',
+            url: 'https://84.201.131.165/api/category',
             dataType : "json",
             contentType: "application/json; charset=utf-8",
             data: `{ "Title": "${document.forms.editCategoryForm.title.value}",
@@ -45,7 +45,7 @@ function deleteCategory(id){
             type: 'DELETE',
             dataType : "json",
             contentType: "application/json; charset=utf-8",
-            url: `http://localhost:5000/api/category/${id}`,
+            url: `https://84.201.131.165/api/category/${id}`,
             beforeSend: function(request) { // в хедерах передаем токен
                request.setRequestHeader("Authorization", `Bearer ${sessionStorage.getItem("AccessToken")}`);
                request.setRequestHeader("grant-type", "refresh_token");
@@ -64,7 +64,7 @@ function getAllCategories()
     $.ajax(
     {
         type: 'GET',
-        url: 'http://localhost:5000/api/category',
+        url: 'https://84.201.131.165/api/category',
         dataType : "json", 
         success: function (data, textStatus)
         { 
@@ -87,7 +87,7 @@ function getAllCategoriesAdmin()
     $.ajax(
     {
         type: 'GET',
-        url: 'http://localhost:5000/api/category',
+        url: 'https://84.201.131.165/api/category',
         dataType : "json", 
         success: function (data, textStatus)
         { 
@@ -119,7 +119,7 @@ function getCategoryList(){
     $.ajax(
         {
             type: 'GET',
-            url: 'http://localhost:5000/api/category',
+            url: 'https://84.201.131.165/api/category',
             dataType : "json", 
             success: function (data, textStatus)
             { 

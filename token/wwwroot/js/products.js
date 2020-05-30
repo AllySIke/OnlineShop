@@ -3,7 +3,7 @@ function getAllProductss()
     $.ajax(
     {
         type: 'GET',
-        url: 'http://localhost:5000/api/product',
+        url: 'https://84.201.131.165/api/product',
         dataType : "json", 
         success: function (data, textStatus)
         { 
@@ -22,7 +22,7 @@ function getProductsByCategory(id){
     $.ajax(
         {
             type: 'GET',
-            url: `http://localhost:5000/api/product/findbycat/${id}`,
+            url: `https://84.201.131.165/api/product/findbycat/${id}`,
             dataType : "json", 
             success: function (data, textStatus)
             { 
@@ -41,7 +41,7 @@ function createProduct(){
     let result = e.options[e.selectedIndex].id;
     // var formData = new FormData();  
     // formData.append("pic", document.forms.createProductForm.pic.files[0])
-    let url = `http://localhost:5000/api/product`;
+    let url = `https://84.201.131.165/api/product`;
     $.ajax(
     {
         type: 'POST',
@@ -71,7 +71,7 @@ function editProduct(){
     var formData = new FormData();  
     formData.append("pic", document.forms.createProductForm.pic.files[0])
 
-    let url = `http://localhost:5000/api/product/${document.forms.createProductForm.title.value}/${document.forms.createProductForm.description.value}/${document.forms.createProductForm.cost.value}/${result}`;
+    let url = `https://84.201.131.165/api/product/${document.forms.createProductForm.title.value}/${document.forms.createProductForm.description.value}/${document.forms.createProductForm.cost.value}/${result}`;
     $.ajax(
     {
         type: 'PUT',

@@ -1,4 +1,4 @@
-let hubUrl = 'http://localhost:5000/chat'; //ссылка, по которому будем обращаться к хабу
+let hubUrl = 'https://84.201.131.165/chat'; //ссылка, по которому будем обращаться к хабу
 let connection = new signalR.HubConnectionBuilder()  //строим соединение с хабом
     .withUrl(hubUrl)                      // в нашем случае будет использована технология web-socket
     .build();
@@ -19,7 +19,7 @@ $('#sendMsg').click(function () {
     $.ajax(
         {
             type: 'POST',
-            url: 'http://localhost:5000/api/chat/send',
+            url: 'https://84.201.131.165/api/chat/send',
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             data: `{ "text": "${txt}", "name": "${name}" }`,

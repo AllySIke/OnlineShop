@@ -2,7 +2,7 @@ function loginUser(){
     $.ajax(
         {
             type: 'POST',
-            url: 'http://localhost:5000/api/auth/login',
+            url: 'https://84.201.131.165/api/auth/login',
             contentType: "application/json; charset=utf-8",
             data: `{ "Email": "${document.forms.loginForm.email.value}", "Password": "${document.forms.loginForm.password.value}"}`,
             success: function (data, textStatus) {
@@ -18,7 +18,7 @@ function registerUser(){
     $.ajax(
         {
             type: 'POST',
-            url: 'http://localhost:5000/api/auth/register',
+            url: 'https://84.201.131.165/api/auth/register',
             contentType: "application/json; charset=utf-8",
             data: `{ "Email": "${document.forms.signUpForm.email.value}", "Password": "${document.forms.signUpForm.password.value}",
              "Name": "${document.forms.signUpForm.name.value}" }`,
